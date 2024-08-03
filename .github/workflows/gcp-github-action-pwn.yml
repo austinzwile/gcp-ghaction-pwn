@@ -22,7 +22,8 @@ jobs:
     - id: 'gcloud'
       name: 'gcloud'
       run: |-
+        gcloud config set project gcp-labs-r8a9eedx
         gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
         gcloud auth list
         gcloud projects list
-        gcloud secrets versions access latest --secret="flag_iam_lab_7" --project=gcp-labs-r8a9eedx
+        gcloud secrets versions access 1 --secret="flag_iam_lab_7"

